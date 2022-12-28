@@ -23,8 +23,21 @@
 .hero-text > p {
   margin: 0rem;
   padding: 0rem;
-  width: 50rem;
+  max-width: 50rem;
   margin-left: 0.7rem;
   margin-top: -1rem;
   font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .hero-text > h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text > h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
 }
