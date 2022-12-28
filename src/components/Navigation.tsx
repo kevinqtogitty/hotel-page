@@ -1,51 +1,200 @@
-import React, { useState } from 'react';
+import React, { MutableRefObject, useEffect, useState } from 'react';
 import { a, useTransition, useTrail, useSpring, config } from 'react-spring';
 import './Navigation.css';
 
 const locations = ['Mykonos', 'Lódź', 'New York', 'Miami', 'Paris', 'London'];
+const menuItems = [
+  'Experience',
+  'Rooms',
+  'Restuarant',
+  'Conference Room',
+  'Gallery',
+  'Contact'
+];
 
-const Navigation = () => {
+interface NavigationProps {
+  blah: IntersectionObserver;
+  sectionRef: React.RefObject<HTMLElement>;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ blah, sectionRef }) => {
   const [location, setLocation] = useState('Mykonos');
+  const [isIntersecting, setIntersecting] = useState(false);
   const [locationMenuActive, setLocationMenuActive] = useState(false);
 
   const handleLocationMenu = () => {
     setLocationMenuActive((state) => !state);
   };
 
+  const observer = new IntersectionObserver(
+    ([element]) => setIntersecting(element.isIntersecting),
+    {
+      threshold: [0.5]
+    }
+  );
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+  }, []);
+
+  window.onscroll = function (e) {
+    if (window.scrollY > 656) {
+      setIntersecting(true);
+    } // Value of scroll Y in px
+  };
+
+  return (
+    <>
+      <NavigationDesktop
+        location={location}
+        locationMenuActive={locationMenuActive}
+        handleLocationMenu={handleLocationMenu}
+        setLocationMenuActive={setLocationMenuActive}
+        setLocation={setLocation}
+        isIntersecting={isIntersecting}
+      />
+      <MobileHamburgerMenu
+        location={location}
+        locationMenuActive={locationMenuActive}
+        handleLocationMenu={handleLocationMenu}
+        setLocationMenuActive={setLocationMenuActive}
+        setLocation={setLocation}
+      />
+    </>
+  );
+};
+
+interface NavProps extends LocationProps {
+  location: string;
+  locationMenuActive: boolean;
+  handleLocationMenu: () => void;
+  isIntersecting?: boolean;
+}
+
+const NavigationDesktop: React.FC<NavProps> = ({
+  locationMenuActive,
+  handleLocationMenu,
+  location,
+  setLocationMenuActive,
+  setLocation,
+  isIntersecting
+}) => {
   const arrowSpring = useSpring({
     transform: locationMenuActive ? 'rotateX(0deg)' : 'rotateX(180deg)',
-    transformOrigin: '15px 15px'
+    transformOrigin: '12px 12px'
+  });
+
+  const menuSpring = useSpring({
+    backgroundColor: isIntersecting ? 'blanchedalmond' : 'rgba(0, 0, 0, 0)',
+    color: isIntersecting ? '#000' : '#fff',
+    borderBottom: isIntersecting
+      ? '1px solid #000'
+      : '1px solid rgba(0, 0, 0, 0)'
+  });
+
+  const bookSpring = useSpring({
+    color: isIntersecting ? '#fff' : '#fff'
   });
 
   return (
-    <div>
-      <nav className="nav-bar">
-        <p>
-          HURON{' '}
-          <span className="location-menu-span" onClick={handleLocationMenu}>
-            {location}
-            {'  '}
-            <a.p style={arrowSpring} className="location-menu-open-arrow">
-              ^
-            </a.p>
-          </span>
-        </p>
-        <ul className="nav-menu">
-          <li className="nav-menu-item">Experience</li>
-          <li className="nav-menu-item">Rooms</li>
-          <li className="nav-menu-item">Restuarants</li>
-          <li className="nav-menu-item">Conference Rooms</li>
-          <li className="nav-menu-item">Gallery</li>
-          <li className="nav-menu-item">Contact</li>
-          <li className="nav-menu-item">Book</li>
+    <a.div style={menuSpring} className="desktop-header-container">
+      <div className="desktop-header-logo-location">
+        <h2>HURON</h2>
+        <span
+          className="desktop-location-menu-span"
+          onClick={handleLocationMenu}
+        >
+          <p className="desktop-location-chosen">{location}</p>
+          <a.p style={arrowSpring} className="desktop-location-menu-open-arrow">
+            ^
+          </a.p>
+        </span>
+      </div>
+      <nav className="desktop-nav-bar">
+        <ul className="desktop-nav-menu">
+          {menuItems.map((item) => (
+            <li className="desktop-nav-menu-item">{item}</li>
+          ))}
+          <a.li style={bookSpring} className="desktop-nav-menu-item">
+            Book
+          </a.li>
         </ul>
       </nav>
       <Locations
         locationMenuActive={locationMenuActive}
         setLocationMenuActive={setLocationMenuActive}
         setLocation={setLocation}
+        isIntersecting={isIntersecting}
       />
-    </div>
+    </a.div>
+  );
+};
+
+const MobileHamburgerMenu: React.FC<NavProps> = ({
+  locationMenuActive,
+  handleLocationMenu,
+  location,
+  setLocationMenuActive,
+  setLocation
+}) => {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const showMenu = useSpring({
+    opacity: hamburgerOpen ? 1 : 0,
+    transform: hamburgerOpen ? 'translateX(0%)' : 'translateX(100%)'
+  });
+
+  const handleHamburgerMenu = () => {
+    setHamburgerOpen((state) => !state);
+  };
+
+  const handleLocationChange = (location: string) => {
+    setLocation(location);
+    handleHamburgerMenu();
+  };
+
+  return (
+    <>
+      <div className="hamburger-container">
+        <div className="hamburger-first-row">
+          <h2>HURON</h2>
+          <button onClick={handleHamburgerMenu}>open</button>
+        </div>
+        <div className="hamburger-second-row">
+          <button>{location}</button>
+        </div>
+      </div>
+      <a.div style={showMenu} className="hamburger-overlay">
+        <div>
+          <div className="hamburger-overlay-header">
+            <h2>HURON</h2> <button onClick={handleHamburgerMenu}>Close</button>
+          </div>
+          <br />
+          <div className="hamburger-menu-items-container">
+            <ul className="hamburger-menu-ul">
+              {menuItems.map((item) => (
+                <li className="hamburger-menu-li" onClick={handleHamburgerMenu}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="hamburger-menu-locations">
+          <ul className="hamburger-menu-ul">
+            {locations.map((item) => (
+              <li
+                className="hamburger-menu-li-location"
+                onClick={() => handleLocationChange(item)}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </a.div>
+    </>
   );
 };
 
@@ -53,16 +202,19 @@ interface LocationProps {
   locationMenuActive: boolean;
   setLocationMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
   setLocation: React.Dispatch<React.SetStateAction<string>>;
+  isIntersecting?: boolean;
 }
 
 const Locations: React.FC<LocationProps> = ({
   locationMenuActive,
   setLocationMenuActive,
-  setLocation
+  setLocation,
+  isIntersecting
 }) => {
   const locationTrail = useTrail(locations.length, {
     opacity: locationMenuActive ? 1 : 0,
     transform: locationMenuActive ? 'translateX(0%)' : 'translateX(-100%)',
+    color: isIntersecting ? '#fff' : '#fff',
     config: config.gentle
   });
 
@@ -72,15 +224,17 @@ const Locations: React.FC<LocationProps> = ({
   };
 
   const spring = useSpring({
-    transform: locationMenuActive ? 'translateX(0%)' : 'translateX(-100%)'
+    transform: locationMenuActive ? 'translateX(0%)' : 'translateX(-100%)',
+    backgroundColor: isIntersecting ? '#383838' : 'rgba(0, 0, 0, 0)',
+    height: isIntersecting ? '100vh' : '0vh'
   });
 
   return (
-    <a.ul style={spring} className="location-list">
+    <a.ul style={spring} className="desktop-location-list">
       {locationTrail.map((spring, i) => (
         <a.li
           style={spring}
-          className="location-item"
+          className="desktop-location-item"
           onClick={() => handleChooseLocation(locations[i])}
         >
           {locations[i]}
