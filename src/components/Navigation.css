@@ -1,73 +1,205 @@
-.nav-bar {
+.desktop-header-container {
   position: fixed;
-  z-index: 2;
   width: 100%;
+  display: flex;
   justify-content: space-between;
+  z-index: 2;
+  color: #fff;
+}
+
+.desktop-header-logo-location {
   display: flex;
   align-items: center;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  column-gap: 1rem;
-  margin: 0rem;
-  padding: 1rem;
-}
-
-.nav-menu-item {
-  color: #fff;
-  cursor: pointer;
-  font-size: 1.1rem;
   font-weight: 200;
+  column-gap: 2rem;
+  /* border: 2px solid red; */
 }
-
-p {
+.desktop-header-logo-location > h2 {
+  font-weight: 200;
   font-size: 2rem;
+  margin: 0rem;
   margin-left: 1rem;
-  color: #fff;
-  font-weight: 100;
 }
 
-.location-menu-span {
+.desktop-location-menu-span {
   font-size: 1.4rem;
   cursor: pointer;
   display: flex;
-  /* text-decoration: underline; */
+  /* border: 2px solid blue; */
+  padding: 0rem;
+  align-items: center;
+  column-gap: 1rem;
 }
 
-.location-list {
+.desktop-location-chosen {
+  margin: 0rem;
+  padding: 0rem;
+  font-size: 1rem;
+}
+
+.desktop-location-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   column-gap: 1rem;
   margin: 0rem;
-  padding: 1rem;
+  padding: 2rem;
   z-index: 3;
   position: absolute;
   bottom: fixed;
-  top: 7rem;
+  top: 4.4rem;
 }
 
-.location-item {
-  color: #fff;
+.desktop-location-item {
   cursor: pointer;
   font-size: 2rem;
   font-weight: 200;
   width: fit-content;
 }
 
-.location-item:hover {
-  transform: translateX(1rem);
-}
-
-.logo-location-menu {
+.desktop-logo-location-menu {
   display: flex;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
-.location-menu-open-arrow {
+.desktop-location-menu-open-arrow {
   padding: 0rem;
   margin: 0rem;
-  margin-top: 0.15rem;
+  height: fit-content;
+  font-size: 1.5rem;
+  margin-top: 0.6rem;
+}
+
+.desktop-nav-bar {
+  z-index: 2;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav-menu {
+  list-style: none;
+  display: flex;
+  column-gap: 1rem;
+  margin: 0rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.desktop-nav-menu-item {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.desktop-nav-menu-item:last-child {
+  background-color: rgba(30, 30, 30, 1);
+  width: 5rem;
+  height: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-container {
+  width: 100%;
+  height: fit-content;
+  display: none;
+  position: fixed;
+  z-index: 2;
+  background-color: blanchedalmond;
+}
+
+.hamburger-container > div > h2 {
+  color: #000;
+  font-weight: 400;
+  margin: 0rem;
+  padding: 0.5rem;
+}
+
+.hamburger-container > div > button {
+  margin-left: 0.3rem;
+  border: none;
+  background-color: blanchedalmond;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger-first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000;
+}
+
+.hamburger-second-row {
+  border-bottom: 1px solid #000;
+}
+
+.hamburger-overlay {
+  position: fixed;
+  /* border: 2px solid red; */
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  background-color: #202020;
+  justify-content: flex-start;
+  row-gap: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger-overlay-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* border: 2px solid blue; */
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.hamburger-overlay-header > h2 {
+  font-weight: 100;
+  margin: 0rem;
+  padding: 0.7rem;
+}
+
+.hamburger-menu-ul {
+  list-style: none;
+  margin: 0rem;
+  padding: 0rem;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding-left: 1rem;
+}
+
+.hamburger-menu-li {
+  width: fit-content;
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+.hamburger-menu-li-location {
+  width: fit-content;
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: grey;
+}
+
+@media (max-width: 1024px) {
+  .desktop-header-container {
+    display: none;
+  }
+  .hamburger-container {
+    display: block;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* .desktop-header-logo-location {
+    flex-direction: column;
+  } */
 }
