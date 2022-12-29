@@ -3,7 +3,9 @@ import reactLogo from './assets/react.svg';
 import Navigation from './components/Navigation';
 import About from './page_sections/About';
 import BookOnline from './page_sections/BookOnline';
+import Footer from './page_sections/Footer';
 import Hero from './page_sections/Hero';
+import Magazine from './page_sections/Magazine';
 
 function App() {
   const ref = useRef<HTMLElement>(null);
@@ -17,6 +19,8 @@ function App() {
       <Hero />
       <About ref={ref} />
       <BookOnline />
+      <Magazine />
+      <Footer />
     </>
   );
 }
