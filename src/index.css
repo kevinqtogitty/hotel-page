@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   font-family: 'Red Hat Text', sans-serif;
   width: 100%;
+  overflow: none;
 }
 
 .background {
