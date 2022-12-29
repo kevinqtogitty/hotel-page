@@ -1,0 +1,146 @@
+.magazine-section {
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  row-gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.magazine-header-container {
+  margin-top: 2.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+  /* border: 2px solid green; */
+  max-width: 23rem;
+}
+
+.magazine-image-text-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  /* border: 2px solid orange; */
+}
+
+.image-wrapper {
+  height: 22rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.magazine-h2-mobile {
+  text-align: left;
+  width: fit-content;
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  align-self: flex-start;
+}
+
+.magazine-text {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin-left: 1.2rem;
+}
+
+.magazine-h2-desktop {
+  display: none;
+}
+
+.magazine-h3 {
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin: 0rem;
+  align-self: flex-start;
+}
+
+.magazine-p {
+  display: none;
+  font-weight: 100;
+}
+
+.rooftop {
+  margin-top: -4rem;
+  height: 28rem;
+}
+
+.magazine-text > span {
+  align-self: flex-start;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .magazine-header-container {
+    width: 100%;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .magazine-image-text-container {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .magazine-p {
+    display: block;
+    max-width: 35rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .magazine-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .magazine-header-container {
+    flex-direction: row;
+  }
+
+  .magazine-image-text-container {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .magazine-text {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-left: 1.2rem;
+    max-width: 30rem;
+  }
+
+  .rooftop {
+    height: 40rem;
+  }
+
+  .image-wrapper {
+    height: fit-content;
+  }
+
+  .magazine-h2-mobile {
+    display: none;
+  }
+
+  .magazine-h2-desktop {
+    display: block;
+  }
+
+  .magazine-h3 {
+    font-size: 2.3rem;
+    width: 25rem;
+    line-height: 2.5rem;
+  }
+
+  .magazine-p {
+    display: block;
+    max-width: 35rem;
+  }
+}
