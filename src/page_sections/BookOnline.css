@@ -1,4 +1,100 @@
 .book-online-container {
-  height: 60vh;
-  background-color: #383838;
+  min-height: 70vh;
+  height: fit-content;
+  background-color: #202020;
+  /* display: flex;
+  align-items: center; */
+}
+
+.book-online-text {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  color: #fff;
+  height: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.book-online-text > h2 {
+  margin: 0rem;
+  padding: 0rem;
+  /* border: 2px solid red; */
+  font-size: 2rem;
+  width: 20rem;
+  /* text-align: center; */
+  display: flex;
+}
+
+.book-online-desktop-img {
+  display: none;
+}
+
+.book-online-text > p {
+  /* padding: 1rem; */
+  /* border: 2px solid blue; */
+}
+
+.book-online-mobile-img {
+  border-radius: 50%;
+  height: 17rem;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .book-online-container {
+    min-height: 0rem;
+    height: fit-content;
+    display: flex;
+    /* border: 2px solid red; */
+    align-items: center;
+    padding: 3.5rem;
+    column-gap: 3rem;
+  }
+
+  .book-online-text > h2 {
+    width: 100%;
+  }
+
+  .book-online-mobile-img {
+    display: none;
+  }
+
+  .book-online-desktop-img {
+    display: block;
+    border-radius: 50%;
+    height: 15.5rem;
+  }
+
+  .book-online-text {
+    text-align: left;
+    /* border: 2px solid green; */
+    padding: 0rem;
+    align-items: flex-start;
+  }
+
+  .book-online-text > span {
+    /* border: 2px solid pink; */
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-online-text > p {
+    /* border: 2px solid blue; */
+    max-width: 25rem;
+  }
+
+  .book-online-text > h2 {
+    font-size: 4.3rem;
+    max-width: 35rem;
+  }
+
+  .book-online-desktop-img {
+    height: 24rem;
+  }
 }
