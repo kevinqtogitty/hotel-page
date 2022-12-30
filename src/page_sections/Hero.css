@@ -40,4 +40,8 @@
     font-size: 3rem;
     margin-bottom: 1rem;
   }
+
+  .hero {
+    height: 90vh;
+  }
 }
