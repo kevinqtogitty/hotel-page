@@ -71,10 +71,21 @@ span {
   height: 9rem;
 }
 
+.google-maps-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+}
+
 .couch {
-  height: 16rem;
-  width: min-content;
+  height: 18rem;
+  width: 100vw;
   align-self: center;
+}
+
+.google-maps {
+  font-weight: 400;
+  text-decoration: underline;
 }
 
 @media (min-width: 500px) {
