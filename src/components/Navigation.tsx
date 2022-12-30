@@ -140,9 +140,20 @@ const MobileHamburgerMenu: React.FC<NavProps> = ({
   setLocation
 }) => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [hamburgerLocationsOpen, setHamburgerLocationsOpen] = useState(false);
   const showMenu = useSpring({
     opacity: hamburgerOpen ? 1 : 0,
     transform: hamburgerOpen ? 'translateX(0%)' : 'translateX(100%)'
+  });
+
+  const arrowSpring = useSpring({
+    transform: hamburgerLocationsOpen ? 'rotateX(0deg)' : 'rotateX(180deg)',
+    transformOrigin: '5px 5px'
+  });
+
+  const locationsSpring = useSpring({
+    transform: hamburgerLocationsOpen ? 'translateX(0%)' : 'translateX(100%)'
+    // zIndex: 5
   });
 
   const handleHamburgerMenu = () => {
@@ -151,7 +162,17 @@ const MobileHamburgerMenu: React.FC<NavProps> = ({
 
   const handleLocationChange = (location: string) => {
     setLocation(location);
+    handleOpenLocationMenu();
+  };
+
+  const handleOpenLocationMenu = () => {
+    setHamburgerLocationsOpen((state) => !state);
     handleHamburgerMenu();
+  };
+
+  const handleCloseOverlayButton = () => {
+    setHamburgerLocationsOpen(false);
+    setHamburgerOpen(false);
   };
 
   return (
@@ -159,16 +180,42 @@ const MobileHamburgerMenu: React.FC<NavProps> = ({
       <div className="hamburger-container">
         <div className="hamburger-first-row">
           <h2>HURON</h2>
-          <button onClick={handleHamburgerMenu}>open</button>
+          <button className="hamburger-button" onClick={handleHamburgerMenu}>
+            <div className="hamburger-line-1" />
+            <div className="hamburger-line-1" />
+            <div className="hamburger-line-1" />
+          </button>
         </div>
         <div className="hamburger-second-row">
-          <button>{location}</button>
+          <button
+            className="hamburger-button-main-location"
+            onClick={handleOpenLocationMenu}
+          >
+            {location}
+            <a.p style={arrowSpring} className="hamburger-open-arrow">
+              ^
+            </a.p>
+          </button>
         </div>
       </div>
       <a.div style={showMenu} className="hamburger-overlay">
         <div>
           <div className="hamburger-overlay-header">
-            <h2>HURON</h2> <button onClick={handleHamburgerMenu}>Close</button>
+            <h2>HURON</h2>
+            <button onClick={handleCloseOverlayButton}>
+              <div className="hamburger-line-2" />
+              <div className="hamburger-line-3" />
+            </button>
+          </div>
+          <div className="hamburger-overlay-second-row">
+            <button
+              onClick={() => setHamburgerLocationsOpen((state) => !state)}
+            >
+              {location}
+              <a.p style={arrowSpring} className="overlay-open-arrow">
+                ^
+              </a.p>
+            </button>
           </div>
           <br />
           <div className="hamburger-menu-items-container">
@@ -179,19 +226,19 @@ const MobileHamburgerMenu: React.FC<NavProps> = ({
                 </li>
               ))}
             </ul>
+            <a.div style={locationsSpring} className="hamburger-menu-locations">
+              <ul className="hamburger-menu-ul">
+                {locations.map((item) => (
+                  <li
+                    className="hamburger-menu-li-location"
+                    onClick={() => handleLocationChange(item)}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </a.div>
           </div>
-        </div>
-        <div className="hamburger-menu-locations">
-          <ul className="hamburger-menu-ul">
-            {locations.map((item) => (
-              <li
-                className="hamburger-menu-li-location"
-                onClick={() => handleLocationChange(item)}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
       </a.div>
     </>
