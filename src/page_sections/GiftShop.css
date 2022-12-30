@@ -1,0 +1,71 @@
+.gift-shop-section {
+  background-color: #202020;
+  color: #fff;
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.gift-shop-h2 {
+  line-height: 3rem;
+}
+
+.gift-shop-article {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.gift-shop-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.gift-shop-p {
+  margin: 0rem;
+}
+
+.gift-shop-img-container {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.6rem;
+}
+
+.gift-shop-img {
+  height: 11rem;
+}
+
+@media (min-width: 768px) {
+  .gift-shop-article {
+    flex-direction: row-reverse;
+    column-gap: 1rem;
+  }
+
+  .gift-shop-img {
+    height: 15rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gift-shop-h2 {
+    line-height: 6rem;
+  }
+
+  .gift-shop-article {
+    flex-direction: row-reverse;
+    column-gap: 6rem;
+    justify-content: space-between;
+  }
+
+  .gift-shop-img {
+    height: 20rem;
+  }
+
+  .gift-shop-text {
+    justify-self: flex-end;
+  }
+}
