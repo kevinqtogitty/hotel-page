@@ -1,0 +1,21 @@
+.mobile-booking-footer-section {
+  padding: 0.7rem;
+  background-color: #000;
+  position: fixed;
+  bottom: 0rem;
+  width: 100%;
+  z-index: 2;
+}
+
+.mobile-booking-footer-button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 1024px) {
+  .mobile-booking-footer-section {
+    display: none;
+  }
+}
