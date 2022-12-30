@@ -1,0 +1,97 @@
+.faq-section {
+  background-color: #202020;
+  color: #fff;
+  font-weight: 100;
+  padding: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.faq-h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.faq-accordion-root {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.6px solid #fff;
+}
+
+.faq-accordion-trigger {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border: none;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: left;
+  border-top: 0.6px solid #fff;
+  font-weight: 100;
+  font-size: medium;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+}
+
+.faq-accordion-content {
+  font-weight: 100;
+  height: fit-content;
+  overflow: hidden;
+  max-height: 10rem;
+  padding-bottom: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.faq-accordion-content[data-state='closed'] {
+  animation: slideUp 600ms cubic-bezier(0.03, -0.02, 0.3, 0.98);
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+    padding-bottom: var(--radix-accordion-content-padding-bottom);
+  }
+  to {
+    height: 0;
+    padding-bottom: 0rem;
+  }
+}
+
+.faq-accordion-content[data-state='open'] {
+  animation: slideDown 600ms cubic-bezier(0.03, -0.02, 0.3, 0.98);
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+    padding-bottom: 0rem;
+  }
+  to {
+    padding-bottom: var(--radix-accordion-content-padding-bottom);
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+.faq-accordion-chevron {
+  transition: 500ms cubic-bezier(0.03, -0.02, 0.3, 0.98);
+}
+
+.faq-accordion-trigger[data-state='open'] > .faq-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 1024px) {
+  .faq-h2 {
+    font-size: 3rem;
+  }
+
+  .faq-accordion-trigger {
+    font-size: 1.5rem;
+  }
+
+  .faq-accordion-content {
+    font-size: 1.2rem;
+  }
+}
