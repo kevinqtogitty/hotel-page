@@ -6,10 +6,6 @@ import lounge from '../assets/pictures/about/interior_3.webp';
 
 import './About.css';
 
-// interface Props {
-//   ref: React.MutableRefObject<undefined>;
-// }
-
 const About = React.forwardRef((props, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section ref={ref} className="about-section-container">
@@ -51,11 +47,14 @@ const About = React.forwardRef((props, ref: ForwardedRef<HTMLElement>) => {
             />
           </div>
         </div>
-        <img
-          className="square-photo couch"
-          src={redCouch}
-          alt="Woman with bike and hotel coffee"
-        />
+        <div className="google-maps-container">
+          <img
+            className="square-photo couch"
+            src={redCouch}
+            alt="Woman with bike and hotel coffee"
+          />
+          <span className="google-maps">View on Google Maps</span>
+        </div>
       </article>
     </section>
   );
