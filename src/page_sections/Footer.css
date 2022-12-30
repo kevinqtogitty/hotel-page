@@ -23,7 +23,6 @@
 .footer-contact-container {
   display: flex;
   flex-direction: column;
-  /* row-gap: 1rem; */
   border-top: 0.5px solid #000;
 }
 
