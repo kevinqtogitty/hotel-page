@@ -69,3 +69,29 @@
     justify-self: flex-end;
   }
 }
+
+@media (min-width: 2560px) {
+  .gift-shop-img {
+    height: 40rem;
+  }
+
+  .gift-shop-h2 {
+    font-size: 10rem;
+    max-width: 80rem;
+    line-height: 9rem;
+  }
+
+  .gift-shop-p {
+    font-size: 2.5rem;
+    max-width: 70rem;
+  }
+
+  .gift-shop-text > span {
+    font-size: 2.2rem;
+    font-weight: 800;
+  }
+
+  .gift-shop-text {
+    row-gap: 4rem;
+  }
+}
