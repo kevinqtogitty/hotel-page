@@ -84,7 +84,7 @@ const NavigationDesktop: React.FC<NavProps> = ({
   isIntersecting
 }) => {
   const arrowSpring = useSpring({
-    transform: locationMenuActive ? 'rotate(0deg)' : 'rotate(-180deg)'
+    transform: locationMenuActive ? 'rotate(-90deg)' : 'rotate(-180deg)'
   });
 
   const menuSpring = useSpring({
