@@ -11,15 +11,15 @@ const About = React.forwardRef((props, ref: ForwardedRef<HTMLElement>) => {
     <section ref={ref} className="about-section-container">
       <article className="about-article-1">
         <div className="about-content-container-1">
-          <h2>UNIQUE</h2>
+          <h2 className="about-h2-1">UNIQUE</h2>
           <div>
-            <p>
+            <p className="about-p-1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
               voluptatibus minus rem aspernatur harum nobis facere provident
               eveniet quidem, cum perspiciatis repellendus tempore officiis
               incidunt adipisci quisquam! Id, adipisci voluptates.
             </p>
-            <span>Discover Huron...</span>
+            <span className="about-span-1">Discover Huron...</span>
           </div>
         </div>
         <div className="about-image-container">
@@ -29,16 +29,16 @@ const About = React.forwardRef((props, ref: ForwardedRef<HTMLElement>) => {
       </article>
       <article className="about-article-2">
         <div className="about-content-container-2">
-          <h2>IN THE CENTER</h2>
+          <h2 className="about-h2-2">IN THE CENTER</h2>
           <div className="about-image-container-2">
             <div>
-              <p>
+              <p className="about-p-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
                 voluptatibus minus rem aspernatur harum nobis facere provident
                 eveniet quidem, cum perspiciatis repellendus tempore officiis
                 incidunt adipisci quisquam! Id, adipisci voluptates.
               </p>
-              <span>See our location...</span>
+              <span className="about-span-2">See our location...</span>
             </div>
             <img
               className="square-photo hands"
