@@ -9,7 +9,6 @@ import {
 
 import './Footer.css';
 import * as Accordion from '@radix-ui/react-accordion';
-import { isNamedType } from 'graphql';
 
 const data = [
   {
