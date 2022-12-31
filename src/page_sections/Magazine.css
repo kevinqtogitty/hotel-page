@@ -142,3 +142,37 @@
     max-width: 35rem;
   }
 }
+
+@media (min-width: 2560px) {
+  .rooftop {
+    height: 65rem;
+  }
+
+  .magazine-text {
+    /* border: 2px solid blue; */
+    max-width: 50rem;
+  }
+
+  .magazine-h2-desktop {
+    font-size: 10rem;
+    line-height: 9rem;
+    /* border: 2px solid red; */
+  }
+
+  .magazine-h3 {
+    font-size: 5rem;
+    line-height: 5rem;
+    /* border: 2px solid green; */
+    width: fit-content;
+  }
+
+  .magazine-p {
+    font-size: 2.2rem;
+    /* border: 2px solid pink; */
+    max-width: 100%;
+  }
+
+  .magazine-text > span {
+    font-size: 2.2rem;
+  }
+}
