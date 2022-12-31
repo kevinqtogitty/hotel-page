@@ -105,3 +105,49 @@
     column-gap: 8rem;
   }
 }
+
+@media (min-width: 2560px) {
+  .rooms-main-h2 {
+    font-size: 10rem;
+  }
+  .rooms-img {
+    height: 50rem;
+  }
+
+  .rooms-main-text {
+    /* border: 2px solid red; */
+    max-width: 60rem;
+  }
+
+  .rooms-main-p {
+    font-size: 2.2rem;
+  }
+
+  .rooms-main-span {
+    font-size: 2.2rem;
+  }
+
+  .rooms-article {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .rooms-main-desc {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .room-option {
+    column-gap: 8rem;
+  }
+
+  .room-option-name {
+    font-size: 2.8rem;
+    width: fit-content;
+  }
+
+  .room-option-desc {
+    font-size: 2.8rem;
+    width: fit-content;
+  }
+}
