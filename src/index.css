@@ -32,7 +32,16 @@ body {
   .background {
     background-repeat: no-repeat;
     margin-top: 5rem;
-    background-size: 300vw;
+    background-size: 200vw;
+    background-position: 30% 0%;
+  }
+}
+
+@media (max-width: 480px) {
+  .background {
+    background-repeat: no-repeat;
+    margin-top: 5rem;
+    background-size: 250vw;
     background-position: 30% 0%;
   }
 }
