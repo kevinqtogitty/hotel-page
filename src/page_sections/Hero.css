@@ -16,6 +16,7 @@
 .hero-h2 {
   font-size: 4rem;
   margin: 0rem;
+  margin-left: 0.5rem;
   font-weight: 300;
   padding: 0rem;
 }
@@ -40,9 +41,9 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .hero {
-    height: 90vh;
+    height: 95vh;
   }
 }
 
