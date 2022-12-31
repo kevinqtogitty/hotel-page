@@ -1,6 +1,8 @@
-import React, { MutableRefObject, useEffect, useState } from 'react';
-import { a, useTransition, useTrail, useSpring, config } from 'react-spring';
+import React, { useEffect, useState } from 'react';
+import { a, useTrail, useSpring, config } from 'react-spring';
 import './Navigation.css';
+
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 const locations = ['Mykonos', 'Lódź', 'New York', 'Miami', 'Paris', 'London'];
 const menuItems = [
@@ -82,8 +84,7 @@ const NavigationDesktop: React.FC<NavProps> = ({
   isIntersecting
 }) => {
   const arrowSpring = useSpring({
-    transform: locationMenuActive ? 'rotateX(0deg)' : 'rotateX(180deg)',
-    transformOrigin: '12px 12px'
+    transform: locationMenuActive ? 'rotate(0deg)' : 'rotate(-180deg)'
   });
 
   const menuSpring = useSpring({
@@ -101,7 +102,7 @@ const NavigationDesktop: React.FC<NavProps> = ({
   return (
     <a.div style={menuSpring} className="desktop-header-container">
       <div className="desktop-header-logo-location">
-        <h2>HURON</h2>
+        <h2 className="desktop-navigation-h2">HURON</h2>
         <span
           className="desktop-location-menu-span"
           onClick={handleLocationMenu}
@@ -153,7 +154,6 @@ const MobileHamburgerMenu: React.FC<NavProps> = ({
 
   const locationsSpring = useSpring({
     transform: hamburgerLocationsOpen ? 'translateX(0%)' : 'translateX(100%)'
-    // zIndex: 5
   });
 
   const handleHamburgerMenu = () => {
