@@ -183,3 +183,44 @@
     margin: 0rem;
   }
 }
+
+@media (min-width: 2560px) {
+  .footer-section {
+    justify-content: space-between;
+  }
+
+  .desktop-footer-content-container {
+    min-width: max-content;
+  }
+
+  .footer-article {
+    max-width: 100%;
+    column-gap: 60rem;
+    padding-top: 1rem;
+    margin-right: 3rem;
+  }
+
+  .footer-contact-p {
+    font-size: 2.2rem;
+  }
+
+  .footer-h2 {
+    font-size: 8rem;
+  }
+
+  .footer-span {
+    font-size: 4rem;
+  }
+
+  .desktop-footer-item {
+    min-width: fit-content;
+  }
+
+  .desktop-footer-h3 {
+    font-size: 3rem;
+  }
+
+  .desktop-footer-p {
+    font-size: 2.2rem;
+  }
+}
