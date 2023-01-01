@@ -6,7 +6,7 @@ import './GiftShop.css';
 
 const GiftShop = () => {
   return (
-    <div className="gift-shop-section">
+    <section className="gift-shop-section">
       <h2 className="gift-shop-h2">THE HURON GIFT SHOP</h2>
       <article className="gift-shop-article">
         <div className="gift-shop-img-container">
@@ -21,7 +21,7 @@ const GiftShop = () => {
           <span>Visit the HURON store</span>
         </div>
       </article>
-    </div>
+    </section>
   );
 };
 
